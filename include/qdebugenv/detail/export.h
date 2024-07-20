@@ -1,6 +1,7 @@
 #pragma once
 
 #include <floppy/floppy.h>
+#include <floppy/traits.h>
 
 #if defined(FLOPPY_OS_WINDOWS)
 # if defined(QDE_LIBRARY)
@@ -34,5 +35,7 @@ namespace qdebugenv
       "io.github.whs31.qdebugenv",
       "whs31"
     );
+
+    constexpr inline auto qml_namespace_rendering = "io.qdebugenv.rendering";
   } // namespace meta
 } // namespace qdebugenv

@@ -56,9 +56,14 @@ target_sources(${PROJECT_NAME}
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/rhi/class_immediate_gui_bridge.h> $<INSTALL_INTERFACE:include/qdebugenv/rhi/class_immediate_gui_bridge.h>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/rhi/class_renderer.h> $<INSTALL_INTERFACE:include/qdebugenv/rhi/class_renderer.h>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/idrawable_on_immediate_gui.h> $<INSTALL_INTERFACE:include/qdebugenv/idrawable_on_immediate_gui.h>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/class_generic_renderer.h> $<INSTALL_INTERFACE:include/qdebugenv/class_generic_renderer.h>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/class_extendable_renderer.h> $<INSTALL_INTERFACE:include/qdebugenv/class_extendable_renderer.h>
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rhi/class_renderer.cc
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rhi/class_immediate_gui_bridge.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/class_generic_renderer.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/class_extendable_renderer.cc
 )
 
 target_link_libraries(${PROJECT_NAME}
