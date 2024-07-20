@@ -53,8 +53,12 @@ cmake_print_properties(TARGETS ${PROJECT_NAME} PROPERTIES
 )
 
 target_sources(${PROJECT_NAME}
+  PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/rhi/class_immediate_gui_bridge.h> $<INSTALL_INTERFACE:include/qdebugenv/rhi/class_immediate_gui_bridge.h>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv/rhi/class_renderer.h> $<INSTALL_INTERFACE:include/qdebugenv/rhi/class_renderer.h>
   PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/src/rhi/class_renderer.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/rhi/class_immediate_gui_bridge.cc
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -81,7 +85,7 @@ endif()
 
 target_compile_definitions(${PROJECT_NAME}
   PUBLIC
-    -DQDE_TARGET_NAME=${PROJECT_NAME}
+    -DQDE_TARGET_NAME="${PROJECT_NAME}"
     -DQDE_PROJECT_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
     -DQDE_PROJECT_VERSION_MINOR=${PROJECT_VERSION_MINOR}
     -DQDE_PROJECT_VERSION_PATCH=${PROJECT_VERSION_PATCH}
@@ -95,11 +99,22 @@ if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
   )
 endif()
 
+qt6_add_shaders(${PROJECT_NAME} "imgui_shaders"
+  PREFIX
+    "/"
+  BASE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+  FILES
+    ${CMAKE_CURRENT_SOURCE_DIR}/shaders/imgui.vert
+    ${CMAKE_CURRENT_SOURCE_DIR}/shaders/imgui.frag
+  OUTPUT_TARGETS QDE_OUTPUT_TARGETS
+)
+message(STATUS "[${PROJECT_NAME}] shaders: ${QDE_OUTPUT_TARGETS}")
+
 if(QDE_DEV)
   #add_subdirectory(tests)
 endif()
 
-message(STATUS "[${PROJECT_NAME}] compile integration tests status: ${INTEGRATION_TESTS}")
 message(STATUS "[${PROJECT_NAME}] installing ${PROJECT_NAME} in namespace ${PROJECT_NAMESPACE}")
 include(GNUInstallDirs)
 include(GenerateExportHeader)
@@ -112,7 +127,7 @@ set(CONFIG_TARGETS_FILE "${PROJECT_NAME}-config-targets.cmake")
 set(CONFIG_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake")
 set(INSTALL_EXPORT_DESTINATION_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
-install(TARGETS ${PROJECT_NAME}
+install(TARGETS ${PROJECT_NAME} ${QDE_OUTPUT_TARGETS}
   EXPORT ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -121,7 +136,7 @@ install(TARGETS ${PROJECT_NAME}
 )
 
 install(DIRECTORY $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv> $<INSTALL_INTERFACE:include/qdebugenv> ; DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-export(TARGETS ${PROJECT_NAME} NAMESPACE ${PROJECT_NAMESPACE} FILE "${CMAKE_CURRENT_BINARY_DIR}/${CONFIG_TARGETS_FILE}")
+export(TARGETS ${PROJECT_NAME} ${QDE_OUTPUT_TARGETS} NAMESPACE ${PROJECT_NAMESPACE} FILE "${CMAKE_CURRENT_BINARY_DIR}/${CONFIG_TARGETS_FILE}")
 install(EXPORT ${PROJECT_NAME}
   DESTINATION ${INSTALL_EXPORT_DESTINATION_DIR}
   NAMESPACE ${PROJECT_NAMESPACE}
