@@ -2,17 +2,16 @@ cmake_minimum_required(VERSION 3.15)
 
 include_guard(GLOBAL)
 
-project(qdebugenv
-  VERSION 0.1.0
-  DESCRIPTION "Qt Quick (6.5+) Debug Environment - debug overlay for QML applications based on ImGUI"
-  HOMEPAGE_URL "whs31.github.io/qdebugenv"
+project(imgui
+  VERSION 1.91.0
+  DESCRIPTION "ImGui: an immediate-mode GUI library for C++"
+  HOMEPAGE_URL "https://github.com/ocornut/imgui"
   LANGUAGES C CXX
 )
 set(PROJECT_NAMESPACE ${PROJECT_NAME}::)
 
 include(CMakePrintHelpers)
 
-option(QDE_DEV "Enable development mode" OFF)
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 if("${CMAKE_GENERATOR}" MATCHES "^Visual Studio")
@@ -23,23 +22,11 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
-# -- dependencies --
-add_subdirectory(extern/imgui)
-find_package(floppy REQUIRED)
-find_package(Qt6
-  COMPONENTS
-    Core
-    Quick
-    ShaderTools
-  REQUIRED
-)
-add_library(${PROJECT_NAMESPACE}imgui ALIAS imgui)
-
 add_library(${PROJECT_NAME})
 add_library(${PROJECT_NAMESPACE}${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-  CXX_STANDARD 23
+  CXX_STANDARD 11
   CXX_STANDARD_REQUIRED ON
   CXX_EXTENSIONS OFF
   POSITION_INDEPENDENT_CODE ON
@@ -54,50 +41,14 @@ cmake_print_properties(TARGETS ${PROJECT_NAME} PROPERTIES
 
 target_sources(${PROJECT_NAME}
   PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/rhi/class_renderer.cc
-)
-
-target_link_libraries(${PROJECT_NAME}
-  PUBLIC
-    qdebugenv::imgui
-    floppy::floppy
-    Qt::Core
-    Qt::Gui
-    Qt::Quick
-  PRIVATE
-    Qt::GuiPrivate
-    Qt::QuickPrivate
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imgui.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imgui_draw.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imgui_widgets.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imgui_tables.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/imgui_demo.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>$<INSTALL_INTERFACE:include> PRIVATE src)
-
-if(BUILD_SHARED_LIBS)
-  message(STATUS "[${PROJECT_NAME}] adding shared export symbols: QDE_LIBRARY")
-  target_compile_definitions(${PROJECT_NAME} PUBLIC -DQDE_LIBRARY=1)
-else()
-  message(STATUS "[${PROJECT_NAME}] adding static export symbols: QDE_STATIC_LIBRARY")
-  target_compile_definitions(${PROJECT_NAME} PUBLIC -DQDE_STATIC_LIBRARY=1)
-endif()
-
-target_compile_definitions(${PROJECT_NAME}
-  PUBLIC
-    -DQDE_TARGET_NAME=${PROJECT_NAME}
-    -DQDE_PROJECT_VERSION_MAJOR=${PROJECT_VERSION_MAJOR}
-    -DQDE_PROJECT_VERSION_MINOR=${PROJECT_VERSION_MINOR}
-    -DQDE_PROJECT_VERSION_PATCH=${PROJECT_VERSION_PATCH}
-)
-
-if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
-  message(STATUS "[${PROJECT_NAME}] adding compiler flags: -Wall -Wextra -Wpedantic -Werror")
-  target_compile_options(${PROJECT_NAME} PRIVATE
-    $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
-    $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -Wpedantic -Werror>
-  )
-endif()
-
-if(QDE_DEV)
-  #add_subdirectory(tests)
-endif()
 
 message(STATUS "[${PROJECT_NAME}] compile integration tests status: ${INTEGRATION_TESTS}")
 message(STATUS "[${PROJECT_NAME}] installing ${PROJECT_NAME} in namespace ${PROJECT_NAMESPACE}")
@@ -120,7 +71,7 @@ install(TARGETS ${PROJECT_NAME}
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-install(DIRECTORY $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/qdebugenv> $<INSTALL_INTERFACE:include/qdebugenv> ; DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/imgui> $<INSTALL_INTERFACE:include/imgui> ; DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 export(TARGETS ${PROJECT_NAME} NAMESPACE ${PROJECT_NAMESPACE} FILE "${CMAKE_CURRENT_BINARY_DIR}/${CONFIG_TARGETS_FILE}")
 install(EXPORT ${PROJECT_NAME}
   DESTINATION ${INSTALL_EXPORT_DESTINATION_DIR}
