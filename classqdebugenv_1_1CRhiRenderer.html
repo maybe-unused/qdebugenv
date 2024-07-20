@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<!-- BEGIN opengraph metadata -->
+<meta property="og:title" content="Doxygen Awesome" />
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/172933191?s=200&v=4" />
+<meta property="og:description" content="Documentation for the QDebugEnv library" />
+<meta property="og:url" content="https://maybe-unused.github.io/qdebugenv" />
+<!-- END opengraph metadata -->
+<!-- BEGIN twitter metadata -->
+<meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/172933191?s=200&v=4" />
+<meta name="twitter:title" content="Documentation for the QDebugEnv library" />
+<meta name="twitter:description" content="https://maybe-unused.github.io/qdebugenv" />
+<!-- END twitter metadata -->
+<title>QDebugEnv: CRhiRenderer Class Reference</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="doxygen-awesome-tabs.js"></script>
+<script type="text/javascript" src="toggle-alternative-theme.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- https://tholman.com/github-corners/ -->
+<a href="https://github.com/maybe-unused/qdebugenv" class="github-corner" title="View source on GitHub" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 250 250" width="40" height="40" style="position: absolute; top: 0; border: 0; right: 0; z-index: 99;" aria-hidden="true">
+    <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-tmp.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">QDebugEnv
+   &#160;<span id="projectnumber">0.1.0</span>
+   </div>
+   <div id="projectbrief">Debug overlay for QML applications</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generated by Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Search');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classqdebugenv_1_1CRhiRenderer.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="classqdebugenv_1_1CRhiRenderer-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">CRhiRenderer Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Collaboration diagram for CRhiRenderer:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="classqdebugenv_1_1CRhiRenderer__coll__graph.svg" width="310" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer" id="r_structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer">CommandListBuffer</a></td></tr>
+<tr class="separator:structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqdebugenv_1_1CRhiRenderer_1_1DrawCommand" id="r_structqdebugenv_1_1CRhiRenderer_1_1DrawCommand"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1DrawCommand">DrawCommand</a></td></tr>
+<tr class="separator:structqdebugenv_1_1CRhiRenderer_1_1DrawCommand"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData" id="r_structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData">FrameRenderData</a></td></tr>
+<tr class="separator:structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structqdebugenv_1_1CRhiRenderer_1_1StaticRenderData.html">StaticRenderData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a2f42fca52d6395191559d2ee3cd6938c" id="r_a2f42fca52d6395191559d2ee3cd6938c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><b>CustomTextureOwnership</b> : char { <br />
+&#160;&#160;<b>Take</b>
+, <br />
+&#160;&#160;<b>None</b>
+<br />
+ }</td></tr>
+<tr class="separator:a2f42fca52d6395191559d2ee3cd6938c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a951b55a36d4006727c5a6d5fa6560673" id="r_a951b55a36d4006727c5a6d5fa6560673"><td class="memItemLeft" align="right" valign="top"><a id="a951b55a36d4006727c5a6d5fa6560673" name="a951b55a36d4006727c5a6d5fa6560673"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CRhiRenderer</b> (const <a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;)=delete</td></tr>
+<tr class="separator:a951b55a36d4006727c5a6d5fa6560673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c98cf359f3eb5eb385c321a5cb524c" id="r_a30c98cf359f3eb5eb385c321a5cb524c"><td class="memItemLeft" align="right" valign="top"><a id="a30c98cf359f3eb5eb385c321a5cb524c" name="a30c98cf359f3eb5eb385c321a5cb524c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CRhiRenderer</b> (<a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;&amp;)=default</td></tr>
+<tr class="separator:a30c98cf359f3eb5eb385c321a5cb524c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada088fbc8b9d2d42725204b488423c22" id="r_ada088fbc8b9d2d42725204b488423c22"><td class="memItemLeft" align="right" valign="top"><a id="ada088fbc8b9d2d42725204b488423c22" name="ada088fbc8b9d2d42725204b488423c22"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;) -&gt; <a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;=delete</td></tr>
+<tr class="separator:ada088fbc8b9d2d42725204b488423c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3525f7bf7e5f8260ee1acfb3d996d473" id="r_a3525f7bf7e5f8260ee1acfb3d996d473"><td class="memItemLeft" align="right" valign="top"><a id="a3525f7bf7e5f8260ee1acfb3d996d473" name="a3525f7bf7e5f8260ee1acfb3d996d473"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;&amp;) -&gt; <a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a> &amp;=default</td></tr>
+<tr class="separator:a3525f7bf7e5f8260ee1acfb3d996d473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e1c66f878e60c1e01d56cdf3706cef" id="r_ac5e1c66f878e60c1e01d56cdf3706cef"><td class="memItemLeft" align="right" valign="top"><a id="ac5e1c66f878e60c1e01d56cdf3706cef" name="ac5e1c66f878e60c1e01d56cdf3706cef"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>prepare</b> (::QRhi *rhi, ::QRhiRenderTarget *rt, ::QRhiCommandBuffer *cb, ::QMatrix4x4 const &amp;mvp, f32 opacity=1.0F, f32 hdr_white_level=0.0F) -&gt; void</td></tr>
+<tr class="separator:ac5e1c66f878e60c1e01d56cdf3706cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dbc4af097873fa342f9178e72c42df3" id="r_a4dbc4af097873fa342f9178e72c42df3"><td class="memItemLeft" align="right" valign="top"><a id="a4dbc4af097873fa342f9178e72c42df3" name="a4dbc4af097873fa342f9178e72c42df3"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>render</b> () -&gt; void</td></tr>
+<tr class="separator:a4dbc4af097873fa342f9178e72c42df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a19f439fdbd1254456a2ee7314fed30" id="r_a3a19f439fdbd1254456a2ee7314fed30"><td class="memItemLeft" align="right" valign="top"><a id="a3a19f439fdbd1254456a2ee7314fed30" name="a3a19f439fdbd1254456a2ee7314fed30"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>release_resources</b> () -&gt; void</td></tr>
+<tr class="separator:a3a19f439fdbd1254456a2ee7314fed30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc96886395ec8a437d95bd6057194df3" id="r_adc96886395ec8a437d95bd6057194df3"><td class="memItemLeft" align="right" valign="top"><a id="adc96886395ec8a437d95bd6057194df3" name="adc96886395ec8a437d95bd6057194df3"></a>
+auto&#160;</td><td class="memItemRight" valign="bottom"><b>register_custom_texture</b> (void *id, ::QRhiTexture *texture, ::QRhiSampler::Filter filter, CustomTextureOwnership ownership) -&gt; void</td></tr>
+<tr class="separator:adc96886395ec8a437d95bd6057194df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a2f07c52a98661b6ab10ae48eef7d4432" id="r_a2f07c52a98661b6ab10ae48eef7d4432"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structqdebugenv_1_1CRhiRenderer_1_1StaticRenderData.html">StaticRenderData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f07c52a98661b6ab10ae48eef7d4432">sf</a></td></tr>
+<tr class="separator:a2f07c52a98661b6ab10ae48eef7d4432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad5bdfb1d73a8d26fc819fc710fd6d60" id="r_aad5bdfb1d73a8d26fc819fc710fd6d60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData">FrameRenderData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad5bdfb1d73a8d26fc819fc710fd6d60">f</a></td></tr>
+<tr class="separator:aad5bdfb1d73a8d26fc819fc710fd6d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00028">28</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+</div><hr/><h2 class="groupheader">Class Documentation</h2>
+<a name="structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer" id="structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer">&#9670;&#160;</a></span>qdebugenv::CRhiRenderer::CommandListBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qdebugenv::CRhiRenderer::CommandListBuffer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00038">38</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a4ba37e6b40e12ce1d1e5dbee0323069d" name="a4ba37e6b40e12ce1d1e5dbee0323069d"></a>u32</td>
+<td class="fieldname">
+offset</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1ca5a125253b095616b2ddc5a92dcb8e" name="a1ca5a125253b095616b2ddc5a92dcb8e"></a>::QByteArray</td>
+<td class="fieldname">
+data</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqdebugenv_1_1CRhiRenderer_1_1DrawCommand" id="structqdebugenv_1_1CRhiRenderer_1_1DrawCommand"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqdebugenv_1_1CRhiRenderer_1_1DrawCommand">&#9670;&#160;</a></span>qdebugenv::CRhiRenderer::DrawCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qdebugenv::CRhiRenderer::DrawCommand</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00044">44</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="af9c3413936d1b4c3dbe31362920fe232" name="af9c3413936d1b4c3dbe31362920fe232"></a>i32</td>
+<td class="fieldname">
+command_list_buffer_index {}</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a360b456f447aad84df3fe5c8f1e13d25" name="a360b456f447aad84df3fe5c8f1e13d25"></a>void *</td>
+<td class="fieldname">
+texture_id {}</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a913bf9a9516f6634dfb41269eb7a7fe2" name="a913bf9a9516f6634dfb41269eb7a7fe2"></a>u32</td>
+<td class="fieldname">
+index_offset {}</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a1657d38ebdc743039294507f0a4c4eda" name="a1657d38ebdc743039294507f0a4c4eda"></a>u32</td>
+<td class="fieldname">
+element_count {}</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a636620ed519d768cd3766e4c24f1c055" name="a636620ed519d768cd3766e4c24f1c055"></a>::QPointF</td>
+<td class="fieldname">
+item_pixel_offset {}</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ad6266e152b0457919039a1c8489efa36" name="ad6266e152b0457919039a1c8489efa36"></a>::QVector4D</td>
+<td class="fieldname">
+clip_rect {}</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData" id="structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData">&#9670;&#160;</a></span>qdebugenv::CRhiRenderer::FrameRenderData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct qdebugenv::CRhiRenderer::FrameRenderData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00064">64</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+</div><table class="fieldtable">
+<tr><th colspan="3">Class Members</th></tr>
+<tr><td class="fieldtype">
+<a id="a29c8a396e22006e5db24da95acaf2fc2" name="a29c8a396e22006e5db24da95acaf2fc2"></a>u32</td>
+<td class="fieldname">
+total_vbuf_size = 0</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a9caced4c37961e5f18e57f798cc0b126" name="a9caced4c37961e5f18e57f798cc0b126"></a>u32</td>
+<td class="fieldname">
+total_ibuf_size = 0</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aa0e326ce070b8abce70d3f1b3dce24d6" name="aa0e326ce070b8abce70d3f1b3dce24d6"></a>::QVarLengthArray&lt; <a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer">CommandListBuffer</a>, 4 &gt;</td>
+<td class="fieldname">
+vbuf</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a52d0b6b6c8d4cc214850f0a5646fc0e7" name="a52d0b6b6c8d4cc214850f0a5646fc0e7"></a>::QVarLengthArray&lt; <a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1CommandListBuffer">CommandListBuffer</a>, 16 &gt;</td>
+<td class="fieldname">
+ibuf</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="ace0bca41be32ad622f1e9bb603a042c0" name="ace0bca41be32ad622f1e9bb603a042c0"></a>::QVarLengthArray&lt; <a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1DrawCommand">DrawCommand</a>, 4 &gt;</td>
+<td class="fieldname">
+draw</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a08d2d672754f72fa35909688cd19d752" name="a08d2d672754f72fa35909688cd19d752"></a>::QSize</td>
+<td class="fieldname">
+output_pixel_size</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a2f42fca52d6395191559d2ee3cd6938c" name="a2f42fca52d6395191559d2ee3cd6938c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f42fca52d6395191559d2ee3cd6938c">&#9670;&#160;</a></span>CustomTextureOwnership</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class CustomTextureOwnership : char</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00074">74</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2f07c52a98661b6ab10ae48eef7d4432" name="a2f07c52a98661b6ab10ae48eef7d4432"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f07c52a98661b6ab10ae48eef7d4432">&#9670;&#160;</a></span>sf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structqdebugenv_1_1CRhiRenderer_1_1StaticRenderData.html">StaticRenderData</a> sf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00076">76</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+
+</div>
+</div>
+<a id="aad5bdfb1d73a8d26fc819fc710fd6d60" name="aad5bdfb1d73a8d26fc819fc710fd6d60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad5bdfb1d73a8d26fc819fc710fd6d60">&#9670;&#160;</a></span>f</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#structqdebugenv_1_1CRhiRenderer_1_1FrameRenderData">FrameRenderData</a> f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="class__renderer_8h_source.html#l00077">77</a> of file <a class="el" href="class__renderer_8h_source.html">class_renderer.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="class__renderer_8h_source.html">class_renderer.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceqdebugenv.html">qdebugenv</a></li><li class="navelem"><a class="el" href="classqdebugenv_1_1CRhiRenderer.html">CRhiRenderer</a></li>
+    <li class="footer">Generated on Sat Jul 20 2024 for QDebugEnv by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
+</body>
+</html>

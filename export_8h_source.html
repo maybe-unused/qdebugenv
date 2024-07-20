@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Documentation for the QDebugEnv library" />
 <meta name="twitter:description" content="https://maybe-unused.github.io/qdebugenv" />
 <!-- END twitter metadata -->
-<title>QDebugEnv: qdebugenv Directory Reference</title>
+<title>QDebugEnv: export.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link rel="icon" type="image/svg+xml" href="logo.drawio.svg"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -85,6 +85,11 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -98,7 +103,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('dir_d24a948861090e3c35c2cf099166668b.html',''); initResizable(); });
+$(function(){initNavTree('export_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -124,30 +129,56 @@ $(function(){initNavTree('dir_d24a948861090e3c35c2cf099166668b.html',''); initRe
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">qdebugenv Directory Reference</div></div>
+  <div class="headertitle"><div class="title">export.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Directory dependency graph for qdebugenv:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="dir_d24a948861090e3c35c2cf099166668b_dep.svg" width="415" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;floppy/floppy.h&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#if defined(FLOPPY_OS_WINDOWS)</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor"># if defined(QDE_LIBRARY)</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#   define QDE_API __declspec(dllexport)</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor"># elif defined(QDE_STATIC_LIBRARY)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#   define QDE_API</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor"># else</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#   define QDE_API __declspec(dllimport)</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor"># endif</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor"># define QDE_API __attribute__((visibility(&quot;default&quot;)))</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespaceqdebugenv.html">   18</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceqdebugenv.html">qdebugenv</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">using namespace </span>fl::types;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">using namespace </span>fl::literals;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespaceqdebugenv_1_1meta.html">   24</a></span>  <span class="keyword">namespace </span>meta</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceqdebugenv_1_1meta.html#a61cee51be8b1adaec230e457f6dedb49">   27</a></span>    [[maybe_unused]] <span class="keyword">constexpr</span> <span class="keyword">inline</span> <span class="keyword">auto</span> <a class="code hl_variable" href="namespaceqdebugenv_1_1meta.html#a61cee51be8b1adaec230e457f6dedb49">qde_meta</a> = fl::meta::project_meta(</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      fl::meta::version(</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        QDE_PROJECT_VERSION_MAJOR,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        QDE_PROJECT_VERSION_MINOR,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        QDE_PROJECT_VERSION_PATCH</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        ),</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      std::string_view(QDE_TARGET_NAME),</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>      <span class="stringliteral">&quot;io.github.whs31.qdebugenv&quot;</span>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      <span class="stringliteral">&quot;whs31&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    );</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  } <span class="comment">// namespace meta</span></div>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="subdirs" name="subdirs"></a>
-Directories</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="iconfclosed"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_67a119b03982f3221249f3cf5bb3d7f1.html">detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="iconfclosed"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_fd38e77bbc2ec5244e12dfa3f16ea744.html">rhi</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top"><span class="iconfclosed"></span>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dir_1586099cb967ad6b44071f816a0cb555.html">vendored</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-</div><!-- contents -->
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <span class="comment">// namespace qdebugenv</span></div>
+</div>
+<div class="ttc" id="anamespaceqdebugenv_1_1meta_html_a61cee51be8b1adaec230e457f6dedb49"><div class="ttname"><a href="namespaceqdebugenv_1_1meta.html#a61cee51be8b1adaec230e457f6dedb49">qdebugenv::meta::qde_meta</a></div><div class="ttdeci">constexpr auto qde_meta</div><div class="ttdoc">Meta information about the library.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">export.h:27</a></div></div>
+<div class="ttc" id="anamespaceqdebugenv_html"><div class="ttname"><a href="namespaceqdebugenv.html">qdebugenv</a></div><div class="ttdoc">Qt Quick Debug Environment library namespace.</div><div class="ttdef"><b>Definition</b> <a href="#l00018">export.h:19</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d24a948861090e3c35c2cf099166668b.html">qdebugenv</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d24a948861090e3c35c2cf099166668b.html">qdebugenv</a></li><li class="navelem"><a class="el" href="dir_67a119b03982f3221249f3cf5bb3d7f1.html">detail</a></li><li class="navelem"><b>export.h</b></li>
     <li class="footer">Generated on Sat Jul 20 2024 for QDebugEnv by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
   </ul>
 </div>
