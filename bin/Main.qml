@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Window
+import io.qdebugenv.rendering 1.0 as QDE_Rendering
 
 Window {
     width: 300
@@ -22,4 +23,5 @@ Window {
             loops: Animation.Infinite
         }
     }
+    QDE_Rendering.ImmediateGUIRenderingFacility { shortcut: "\\"; opacity: 0 }
 }

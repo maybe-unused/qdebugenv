@@ -10,7 +10,7 @@ namespace qdebugenv
       fmt::println("<qdebugenv> registering {} qml types", meta::qml_namespace_rendering);
       qmlRegisterModule(meta::qml_namespace_rendering, 1, 0);
       qmlRegisterType<CExtendableRenderer>(meta::qml_namespace_rendering, 1, 0, "ExtendableRenderer");
-      qmlRegisterType(QUrl("qrc:/qml/ImmediateGUIRenderingFacility.qml"), "io.qdebugenv.rendering", 1, 0, "ImmediateGUIRenderingFacility");
+      qmlRegisterType(QUrl(":/qml/ImmediateGUIRenderingFacility.qml"), "io.qdebugenv.rendering", 1, 0, "ImmediateGUIRenderingFacility");
       return true;
     }();
   } // namespace qml
