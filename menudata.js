@@ -29,8 +29,10 @@ var menudata={children:[
 {text:"Namespace Members",url:"namespacemembers.html",children:[
 {text:"All",url:"namespacemembers.html"},
 {text:"Variables",url:"namespacemembers_vars.html"}]}]},
+{text:"Concepts",url:"concepts.html"},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"}]},
+{text:"Class Index",url:"classes.html"},
+{text:"Class Hierarchy",url:"inherits.html"}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}
