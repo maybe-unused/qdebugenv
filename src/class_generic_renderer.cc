@@ -165,7 +165,7 @@ namespace qdebugenv
   auto CGenericRenderer::set_graphics_info(QObject* info) -> void {
     if(this->impl_->graphics_info == info)
       return;
-    this->impl_->graphics_info = qobject_cast<::QQuickGraphicsInfo*>(info);
+    //this->impl_->graphics_info = qobject_cast<::QQuickGraphicsInfo*>(info);
     emit this->impl_->q->graphics_info_changed();
   }
 
