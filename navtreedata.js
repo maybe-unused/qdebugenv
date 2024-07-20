@@ -24,12 +24,16 @@
 */
 var NAVTREE =
 [
-  [ "QDebugEnv", "index.html", ]
+  [ "QDebugEnv", "index.html", [
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"dir_1586099cb967ad6b44071f816a0cb555.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
