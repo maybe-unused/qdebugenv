@@ -4,6 +4,8 @@
 #include <qdebugenv/detail/export.h>
 #include <qdebugenv/rhi/class_immediate_gui_custom_renderer.h>
 
+class QQuickWindow;
+class QQmlApplicationEngine;
 namespace qdebugenv
 {
   class CRhiRenderer;
@@ -22,12 +24,16 @@ namespace qdebugenv
     auto operator=(const CGenericRenderer&) -> CGenericRenderer& = delete;
     auto operator=(CGenericRenderer&&) -> CGenericRenderer& = delete;
 
+    virtual auto style_default() -> void;
     virtual auto frame() -> void;
     [[nodiscard]] virtual auto create_custom_renderer() -> CRhiImmediateGuiCustomRenderer*;
 
     [[nodiscard]] auto bridge() -> CImmediateGuiBridge*;
     [[nodiscard]] auto graphics_info() const -> QObject*;
     auto set_graphics_info(QObject* info) -> void;
+
+    [[nodiscard]] static auto from_window(::QQuickWindow* window) -> CGenericRenderer*;
+    [[nodiscard]] static auto from_engine(::QQmlApplicationEngine* engine) -> CGenericRenderer*;
 
    signals:
       void graphics_info_changed();

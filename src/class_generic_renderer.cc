@@ -2,11 +2,14 @@
 
 #include <qguiapplication.h>
 #include <qquickwindow.h>
+#include <qqmlapplicationengine.h>
 #include <private/qquickgraphicsinfo_p.h>
+#include <magic_enum/magic_enum.hpp>
 #include <floppy/logging.h>
 #include <qdebugenv/rhi/class_renderer.h>
 #include <qdebugenv/rhi/class_immediate_gui_bridge.h>
 #include <qdebugenv/vendored/imgui.h>
+#include <qdebugenv/imgui/all.h>
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 6, 0)
 # include <qsgrendernode.h>
@@ -18,6 +21,7 @@
 # define QDE_WELL_BEHAVING_DEPTH 1
 #endif // QT_VERSION >= QT_VERSION_CHECK(6, 5, 0)
 
+namespace me = magic_enum;
 namespace llog = ::floppy::log;
 namespace
 {
@@ -101,6 +105,29 @@ namespace
     CRhiRenderer* renderer;
     CRhiImmediateGuiCustomRenderer* custom_renderer = nullptr;
   };
+
+  struct GraphicsInfo
+  {
+    std::string backend;
+    std::string version;
+    std::string profile;
+    std::string renderable_type;
+    std::string shader_compilation_type;
+    std::string shader_source_type;
+    std::string shader_type;
+
+    [[nodiscard]] static auto from_graphics_info(::QQuickGraphicsInfo const& info) -> GraphicsInfo {
+      static auto self = GraphicsInfo();
+      self.backend = me::enum_name(info.api());
+      self.version = fmt::format("{}.{}", info.majorVersion(), info.minorVersion());
+      self.profile = me::enum_name(info.profile());
+      self.renderable_type = me::enum_name(info.renderableType());
+      self.shader_compilation_type = me::enum_name(info.shaderCompilationType());
+      self.shader_source_type = me::enum_name(info.shaderSourceType());
+      self.shader_type = me::enum_name(info.shaderType());
+      return self;
+    }
+  };
 } // namespace
 
 namespace qdebugenv
@@ -132,21 +159,23 @@ namespace qdebugenv
   CGenericRenderer::~CGenericRenderer() = default;
 
   auto CGenericRenderer::frame() -> void {
+    using enum imgui::palette::color;
+
     auto& io = ImGui::GetIO();
     ImGui::Begin("Scenegraph metrics", &this->impl_->show_metrics);
     if(this->impl_->graphics_info) {
-//      ImGui::Text("Backend: %s", this->impl_->graphics_info->api());
-//      ImGui::Separator();
-//      ImGui::Text("Version: %d.%d", this->impl_->graphics_info->majorVersion(), this->impl_->graphics_info->minorVersion());
-//      ImGui::Text("Profile: %s", this->impl_->graphics_info->profile());
-//      ImGui::Text("Renderable type: %s", this->impl_->graphics_info->renderableType());
-//      ImGui::Text("Shader compilation type: %s", this->impl_->graphics_info->shaderCompilationType());
-//      ImGui::Text("Shader source type: %s", this->impl_->graphics_info->shaderSourceType());
-//      ImGui::Text("Shader type: %s", this->impl_->graphics_info->shaderType());
+      auto const info = ::GraphicsInfo::from_graphics_info(*this->impl_->graphics_info);
+      imgui::debug_field(imgui::default_palette[green], "Backend", "{}", info.backend);
+      imgui::debug_field(imgui::default_palette[purple], "Version", "{}", info.version);
+      imgui::debug_field(imgui::default_palette[purple], "Profile", "{}", info.profile);
+      imgui::debug_field(imgui::default_palette[comment], "Renderable type", "{}", info.renderable_type);
+      imgui::debug_field(imgui::default_palette[comment], "Shader compilation type", "{}", info.shader_compilation_type);
+      imgui::debug_field(imgui::default_palette[comment], "Shader source type", "{}", info.shader_source_type);
+      imgui::debug_field(imgui::default_palette[purple], "Shader type", "{}", info.shader_type);
     } else
-      ImGui::Text("No graphics info available");
-    ImGui::Separator();
-    ImGui::Text("Framerate: %.1f (%.5f ms/frame)", io.Framerate, 1'000.0F / io.Framerate);
+      imgui::text(imgui::default_palette[red], "No graphics info available");
+    imgui::separator();
+    imgui::debug_field(imgui::default_palette[comment], "Framerate", "{:.1f} FPS ({:.5f} ms/frame)", io.Framerate, 1'000.0F / io.Framerate);
     ImGui::End();
   }
 
@@ -165,7 +194,7 @@ namespace qdebugenv
   auto CGenericRenderer::set_graphics_info(QObject* info) -> void {
     if(this->impl_->graphics_info == info)
       return;
-    //this->impl_->graphics_info = qobject_cast<::QQuickGraphicsInfo*>(info);
+    this->impl_->graphics_info = static_cast<::QQuickGraphicsInfo*>(info);
     emit this->impl_->q->graphics_info_changed();
   }
 
@@ -243,4 +272,14 @@ namespace qdebugenv
     this->impl_->gui.process_event(&e);
   }
   auto CGenericRenderer::touchEvent(::QTouchEvent* event) -> void { this->impl_->gui.process_event(event); }
+  auto CGenericRenderer::from_window(::QQuickWindow* window) -> CGenericRenderer* {
+    return window->findChild<CGenericRenderer*>("imgui");
+  }
+  auto CGenericRenderer::from_engine(::QQmlApplicationEngine* engine) -> CGenericRenderer* {
+    return CGenericRenderer::from_window(qobject_cast<::QQuickWindow*>(engine->rootObjects().front()));
+  }
+
+  auto CGenericRenderer::style_default() -> void {
+    [[maybe_unused]] auto _ = imgui::style(imgui::default_palette, imgui::style::roundings());
+  }
 } // namespace qdebugenv

@@ -22,10 +22,7 @@ Rectangle {
         id: imgui
         objectName: "imgui"
         anchors.fill: parent
-
-        Component.onCompleted: {
-
-        }
+        graphicsInfo: GraphicsInfo
     }
 
     Shortcut {

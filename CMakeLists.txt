@@ -27,6 +27,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 add_subdirectory(extern/imgui)
 add_subdirectory(extern/imterm)
 find_package(floppy REQUIRED)
+find_package(magic_enum REQUIRED)
 find_package(Qt6
   COMPONENTS
     Core
@@ -83,6 +84,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
     Qt::GuiPrivate
     Qt::QuickPrivate
+    magic_enum::magic_enum
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>$<INSTALL_INTERFACE:include> PRIVATE src)

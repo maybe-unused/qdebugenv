@@ -35,6 +35,7 @@ class QDebugEnvRecipe(ConanFile):
 
     def requirements(self):
         self.requires("floppy/[^1.2.4]", transitive_headers=True, transitive_libs=True)
+        self.requires("magic_enum/[^0.9.0]")
 
     def layout(self):
         cmake_layout(self)
@@ -71,5 +72,5 @@ class QDebugEnvRecipe(ConanFile):
         self.cpp_info.set_property("cmake_file_name", "qdebugenv")
         self.cpp_info.set_property("cmake_target_name", "qdebugenv::qdebugenv")
         self.cpp_info.libs = ["qdebugenv"]
-        self.cpp_info.requires = ["floppy::floppy"]
+        self.cpp_info.requires = ["floppy::floppy", "magic_enum::magic_enum"]
         self.cpp_info.system_libs = ["imgui"]
