@@ -25,6 +25,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # -- dependencies --
 add_subdirectory(extern/imgui)
+add_subdirectory(extern/imterm)
 find_package(floppy REQUIRED)
 find_package(Qt6
   COMPONENTS
@@ -37,6 +38,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 add_library(${PROJECT_NAMESPACE}imgui ALIAS imgui)
+add_library(${PROJECT_NAMESPACE}imterm ALIAS imterm)
 
 add_library(${PROJECT_NAME})
 add_library(${PROJECT_NAMESPACE}${PROJECT_NAME} ALIAS ${PROJECT_NAME})
@@ -73,6 +75,7 @@ target_sources(${PROJECT_NAME}
 target_link_libraries(${PROJECT_NAME}
   PUBLIC
     qdebugenv::imgui
+    qdebugenv::imterm
     floppy::floppy
     Qt::Core
     Qt::Gui
