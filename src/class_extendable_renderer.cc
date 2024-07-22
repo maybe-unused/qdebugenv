@@ -1,17 +1,21 @@
 #include <qdebugenv/class_extendable_renderer.h>
 
-#include <qqml.h>
+#include <qqmlregistration.h>
 
 namespace qdebugenv
 {
   namespace qml
   {
-    [[maybe_unused]] volatile auto register_imgui_ = []() { // NOLINT(*-identifier-naming)
-      fmt::println("<qdebugenv> registering {} qml types", meta::qml_namespace_rendering);
-      qmlRegisterModule(meta::qml_namespace_rendering, 1, 0);
-      qmlRegisterType<CExtendableRenderer>(meta::qml_namespace_rendering, 1, 0, "ExtendableRenderer");
-      qmlRegisterType(QUrl(":/qml/ImmediateGUIRenderingFacility.qml"), "io.qdebugenv.rendering", 1, 0, "ImmediateGUIRenderingFacility");
-      return true;
+    [[maybe_unused]] volatile auto register_1_ = []() { // NOLINT(*-identifier-naming)
+      ::qmlRegisterModule(meta::qml_namespace_rendering, 1, 0);
+      auto const result
+        = ::qmlRegisterType<CGenericRenderer>(meta::qml_namespace_rendering, 1, 0, "GenericRenderer")
+        * ::qmlRegisterType<CExtendableRenderer>(meta::qml_namespace_rendering, 1, 0, "ExtendableRenderer")
+        * ::qmlRegisterType(QUrl("qrc:/qml/ImmediateGUIRenderingFacility.qml"), "io.qdebugenv.rendering", 1, 0, "ImmediateGUIRenderingFacility")
+        <= 0;
+      if(not result)
+        fl::panic("failed to register qml types (io.qdebugenv.rendering)");
+      return result;
     }();
   } // namespace qml
 

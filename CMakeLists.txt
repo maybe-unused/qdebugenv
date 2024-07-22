@@ -119,12 +119,10 @@ qt6_add_shaders(${PROJECT_NAME} "imgui_shaders"
 )
 message(STATUS "[${PROJECT_NAME}] shaders: ${QDE_OUTPUT_TARGETS}")
 
-qt_add_qml_module(${PROJECT_NAME}
-  URI "io.qdebugenv.rendering"
-  VERSION "1.0"
-  QML_FILES
+qt_add_resources(${PROJECT_NAME}
+  PREFIX "/"
+  FILES
     qml/ImmediateGUIRenderingFacility.qml
-  RESOURCE_PREFIX "/"
   OUTPUT_TARGETS QDE_QML_OUTPUT_TARGETS
 )
 message(STATUS "[${PROJECT_NAME}] qml: ${QDE_QML_OUTPUT_TARGETS}")
