@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['staticrenderdata_0',['StaticRenderData',['../structqdebugenv_1_1CRhiRenderer_1_1StaticRenderData.html',1,'qdebugenv::CRhiRenderer']]]
+  ['palette_0',['palette',['../classqdebugenv_1_1imgui_1_1palette.html',1,'qdebugenv::imgui']]]
 ];

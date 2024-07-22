@@ -1,7 +1,7 @@
 var indexSectionsWithContent =
 {
-  0: "cdfiqs",
-  1: "cdfis",
+  0: "cdfipqrst",
+  1: "cdfiprst",
   2: "q",
   3: "q",
   4: "q",
