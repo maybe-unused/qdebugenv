@@ -27,11 +27,29 @@ namespace qdebugenv
     /// \brief Meta information about the library.
     [[maybe_unused]] constexpr inline auto qde_meta = fl::meta::project_meta(
       fl::meta::version(
+        #if defined(QDE_PROJECT_VERSION_MAJOR)
         QDE_PROJECT_VERSION_MAJOR,
+        #else // defined(QDE_PROJECT_VERSION_MAJOR)
+        0,
+        #endif // defined(QDE_PROJECT_VERSION_MAJOR)
+        #if defined(QDE_PROJECT_VERSION_MINOR)
         QDE_PROJECT_VERSION_MINOR,
+        #else // defined(QDE_PROJECT_VERSION_MINOR)
+        1,
+        #endif // defined(QDE_PROJECT_VERSION_MINOR)
+        #if defined(QDE_PROJECT_VERSION_PATCH)
         QDE_PROJECT_VERSION_PATCH
-        ),
-      std::string_view(QDE_TARGET_NAME),
+        #else // defined(QDE_PROJECT_VERSION_PATCH)
+        0
+        #endif // defined(QDE_PROJECT_VERSION_PATCH)
+      ),
+      std::string_view(
+        #if defined(QDE_TARGET_NAME)
+        QDE_TARGET_NAME
+        #else // defined(QDE_TARGET_NAME)
+        "qdebugenv"
+        #endif // defined(QDE_TARGET_NAME)
+      ),
       "io.github.whs31.qdebugenv",
       "whs31"
     );

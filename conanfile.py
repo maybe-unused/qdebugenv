@@ -72,3 +72,4 @@ class QDebugEnvRecipe(ConanFile):
         self.cpp_info.set_property("cmake_target_name", "qdebugenv::qdebugenv")
         self.cpp_info.libs = ["qdebugenv"]
         self.cpp_info.requires = ["floppy::floppy"]
+        self.cpp_info.system_libs = ["imgui"]
