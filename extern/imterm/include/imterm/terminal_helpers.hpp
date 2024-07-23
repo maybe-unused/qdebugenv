@@ -203,7 +203,7 @@ namespace ImTerm {
 
     explicit basic_spdlog_terminal_helper(std::string terminal_to_terminal_logger_name = "ImTerm Terminal")
       : logger_name_{std::move(terminal_to_terminal_logger_name)} {
-      set_terminal_pattern_("%T.%e - [%^command line%$]: %v", message::type::error);
+      set_terminal_pattern_("%T.%e - %^[command line]: %v%$", message::type::error);
       set_terminal_pattern_("%T.%e - %^%v%$", message::type::user_input);
       set_terminal_pattern_("%T.%e - %^%v%$", message::type::cmd_history_completion);
     }
